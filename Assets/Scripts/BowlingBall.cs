@@ -10,6 +10,8 @@ public class BowlingBall : MonoBehaviour
     private float _horizontalInput;
     private bool _isThrown;
 
+    public GameManager manager;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -34,6 +36,8 @@ public class BowlingBall : MonoBehaviour
         _myRigidbody.AddForce(_arrow.transform.forward * _force, ForceMode.Impulse);
         _isThrown = true;
         _arrow.SetActive(false);
+
+        Invoke("ResetBall", 10);
     }
 
     void MoveBall()
@@ -43,5 +47,12 @@ public class BowlingBall : MonoBehaviour
 
         //myRigidbody.AddForce(transform.right * horizontalInput);
         transform.position += transform.right * _horizontalInput * Time.deltaTime * _moveSpeed;
+    }
+
+    void ResetBall()
+    {
+        // spawn ball
+        FindAnyObjectByType<GameManager>().SpawnBall();
+        Destroy(gameObject);
     }
 }
