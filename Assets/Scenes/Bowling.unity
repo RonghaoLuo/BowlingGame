@@ -1539,13 +1539,14 @@ GameObject:
   - component: {fileID: 1378315067}
   - component: {fileID: 1378315066}
   - component: {fileID: 1378315070}
+  - component: {fileID: 1378315071}
   m_Layer: 0
   m_Name: Spinning Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!65 &1378315066
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1634,7 +1635,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 36.05332, z: 0}
 --- !u!95 &1378315070
 Animator:
   serializedVersion: 7
@@ -1657,6 +1658,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1378315071
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1378315065}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6dba80d2bb59e2c418b01414f38b0ff9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 1378315070}
 --- !u!1001 &1440589295
 PrefabInstance:
   m_ObjectHideFlags: 0
