@@ -132,4 +132,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db69e05c14754f74c8f1b56a1d0ce273, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isFallen: 0
+  isFallen: 0
+  myRigidbody: {fileID: 3888518755369009680}

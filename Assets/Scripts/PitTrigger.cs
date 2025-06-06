@@ -12,7 +12,7 @@ public class PitTrigger : MonoBehaviour
             manager = FindAnyObjectByType<GameManager>();
             if (manager != null)
             {
-                manager.SpawnBall();
+                manager.FinishThrow();
             }
 
             Destroy(other.gameObject);

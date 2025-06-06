@@ -3,10 +3,15 @@ using UnityEngine;
 public class Pin : MonoBehaviour
 {
     public bool isFallen;
+    private Vector3 originalPosition;
+    private Quaternion originalRotation;
+    public Rigidbody myRigidbody;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        originalPosition = transform.position;
+        originalRotation = transform.rotation;
     }
 
     // Update is called once per frame
@@ -32,5 +37,14 @@ public class Pin : MonoBehaviour
         {
             Debug.Log(gameObject.name + " was hit by " + collision.collider.gameObject.name);
         }
+    }
+
+    public void ResetPin()
+    {
+        transform.position = originalPosition;
+        transform.rotation = originalRotation;
+        myRigidbody.linearVelocity = Vector3.zero;
+        myRigidbody.angularVelocity = Vector3.zero;
+        gameObject.SetActive(true);
     }
 }

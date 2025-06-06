@@ -5,9 +5,16 @@ public class GameManager : MonoBehaviour
     public Pin[] pins;
     public GameObject ballPrefab;
     public int currentScore;
+    public int currentThrow;
+    public int totalScore;
+
+    private FrameManager frameManager;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        frameManager = FindAnyObjectByType<FrameManager>();
+        currentThrow = 1;
         SpawnBall();
     }
 
@@ -19,8 +26,12 @@ public class GameManager : MonoBehaviour
 
     public void SpawnBall()
     {
-        Invoke("PrepareNewThrow", 2);
-        Instantiate(ballPrefab, transform.position, transform.rotation);
+        // here could be a new throw
+
+        if (frameManager.isGameOver == false)
+        {
+            Instantiate(ballPrefab, transform.position, transform.rotation);
+        }
     }
 
     void PrepareNewThrow()
@@ -33,9 +44,34 @@ public class GameManager : MonoBehaviour
                 pin.gameObject.SetActive(false);
             }
         }
-    }
-    public void ResetPin()
-    {
 
+        currentThrow++;
+        if (currentThrow > 2 || currentScore == 10)
+        {
+            totalScore += currentScore;
+            ResetFrame();
+        }
+
+        // set a new throw
+    }
+
+    public void FinishThrow()
+    {
+        // here could be a new throw
+
+        Invoke("PrepareNewThrow", 3);
+        Invoke("SpawnBall", 3.01f);
+    }
+
+    void ResetFrame()
+    {
+        currentThrow = 1;
+        currentScore = 0;
+        frameManager.NextFrame();
+
+        foreach (Pin pin in pins)
+        {
+            pin.ResetPin();
+        }
     }
 }
