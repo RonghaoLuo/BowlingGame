@@ -5,6 +5,7 @@ public class GameManager : MonoBehaviour
     public Pin[] pins;
     public GameObject ballPrefab;
     public int currentScore;
+    public int firstThrowScore, secondThrowScore;
     public int currentThrow;
     public int totalScore;
 
@@ -14,6 +15,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         frameManager = FindAnyObjectByType<FrameManager>();
+        frameManager.gameManager = this;
         currentThrow = 1;
         SpawnBall();
     }
@@ -44,8 +46,17 @@ public class GameManager : MonoBehaviour
                 pin.gameObject.SetActive(false);
             }
         }
-
-        currentThrow++;
+        if (currentThrow == 1)
+        {
+            firstThrowScore = currentScore;
+            frameManager.UpdateFirstThrowText();
+        }
+        else if (currentThrow == 2)
+        {
+            secondThrowScore = currentScore - firstThrowScore;
+            frameManager.UpdateSecondThrowText();
+        }
+            currentThrow++;
         if (currentThrow > 2 || currentScore == 10)
         {
             totalScore += currentScore;
@@ -68,6 +79,9 @@ public class GameManager : MonoBehaviour
         currentThrow = 1;
         currentScore = 0;
         frameManager.NextFrame();
+
+        firstThrowScore = 0;
+        secondThrowScore = 0;
 
         foreach (Pin pin in pins)
         {
