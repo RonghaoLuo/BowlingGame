@@ -186,6 +186,9 @@ MonoBehaviour:
   _force: 100
   _moveSpeed: 1
   _arrow: {fileID: 1903333316359676790}
+  _animator: {fileID: 0}
+  _shootStraight: 0
+  manager: {fileID: 0}
 --- !u!1001 &4603548617395260682
 PrefabInstance:
   m_ObjectHideFlags: 0

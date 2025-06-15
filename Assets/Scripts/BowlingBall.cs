@@ -6,6 +6,7 @@ public class BowlingBall : MonoBehaviour
     [SerializeField] private float _force;
     [SerializeField] private float _moveSpeed = 1f;
     [SerializeField] private GameObject _arrow;
+    [SerializeField] private bool _shootStraight = false;
 
     private float _horizontalInput;
     private bool _isThrown;
@@ -33,7 +34,14 @@ public class BowlingBall : MonoBehaviour
 
     void ThrowBall()
     {
-        _myRigidbody.AddForce(_arrow.transform.forward * _force, ForceMode.Impulse);
+        if (!_shootStraight)
+        {
+            _myRigidbody.AddForce(_arrow.transform.forward * _force, ForceMode.Impulse);
+        }
+        else
+        {
+            _myRigidbody.AddForce(transform.forward * _force, ForceMode.Impulse);
+        }
         _isThrown = true;
         _arrow.SetActive(false);
 
