@@ -51,7 +51,7 @@ public class BowlingBall : MonoBehaviour
     void MoveBall()
     {
         _horizontalInput = Input.GetAxis("Horizontal");
-        Debug.Log(_horizontalInput);
+        //Debug.Log(_horizontalInput);
 
         //myRigidbody.AddForce(transform.right * horizontalInput);
         transform.position += transform.right * _horizontalInput * Time.deltaTime * _moveSpeed;
