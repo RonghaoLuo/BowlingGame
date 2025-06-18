@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     public int firstThrowScore, secondThrowScore;
     public int currentThrow;
     public int totalScore;
+    public GameObject gameOverScreen;
 
     private FrameManager frameManager;
 
@@ -33,6 +34,10 @@ public class GameManager : MonoBehaviour
         if (frameManager.isGameOver == false)
         {
             Instantiate(ballPrefab, transform.position, transform.rotation);
+        }
+        else
+        {
+            gameOverScreen.SetActive(true);
         }
     }
 

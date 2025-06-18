@@ -6,6 +6,7 @@ public class Pin : MonoBehaviour
     private Vector3 originalPosition;
     private Quaternion originalRotation;
     public Rigidbody myRigidbody;
+    public AudioSource pinHitSound;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -36,6 +37,10 @@ public class Pin : MonoBehaviour
         if (collision.collider.gameObject.CompareTag("Player"))
         {
             Debug.Log(gameObject.name + " was hit by " + collision.collider.gameObject.name);
+
+            pinHitSound.pitch = Random.Range(0.7f, 1.3f);
+            pinHitSound.time = 0.45f;
+            pinHitSound.Play();
         }
     }
 

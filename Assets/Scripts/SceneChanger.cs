@@ -21,6 +21,11 @@ public class SceneChanger : MonoBehaviour
         SceneManager.LoadScene("Bowling"); // also can use numbers of the scene
     }
 
+    public void LoadMainMenu()
+    {
+        SceneManager.LoadScene(0);
+    }
+
     public void ExitGame()
     {
         Application.Quit();

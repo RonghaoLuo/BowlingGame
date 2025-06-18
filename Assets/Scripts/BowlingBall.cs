@@ -12,6 +12,7 @@ public class BowlingBall : MonoBehaviour
     private bool _isThrown;
 
     public GameManager manager;
+    public AudioSource rollingBallSound;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -34,6 +35,9 @@ public class BowlingBall : MonoBehaviour
 
     void ThrowBall()
     {
+        rollingBallSound.time = 0.7f;
+        rollingBallSound.Play();
+
         if (!_shootStraight)
         {
             _myRigidbody.AddForce(_arrow.transform.forward * _force, ForceMode.Impulse);
