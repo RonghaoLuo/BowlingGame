@@ -371,7 +371,7 @@ MonoBehaviour:
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 0
+  m_RenderPostProcessing: 1
   m_Antialiasing: 0
   m_AntialiasingQuality: 2
   m_StopNaN: 0
@@ -2336,7 +2336,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 1
-        m_CallState: 2
+        m_CallState: 0
 --- !u!114 &1117779622
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3540,7 +3540,7 @@ AudioSource:
   m_audioClip: {fileID: 8300000, guid: 8e22244d29cdec54c8f6f3f55f479847, type: 3}
   m_Resource: {fileID: 8300000, guid: 8e22244d29cdec54c8f6f3f55f479847, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.3
+  m_Volume: 0.1
   m_Pitch: 1
   Loop: 1
   Mute: 0
